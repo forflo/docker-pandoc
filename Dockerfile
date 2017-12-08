@@ -1,17 +1,13 @@
 FROM ivotron/texlive:20160320-1
 MAINTAINER Ivo Jimenez <ivo.jimenez@gmail.com>
 
-RUN apt-get -yq update && apt-get install -y haskell-platform python-pip && \
-    cabal update && \
-    mkdir pandoc-crossref && \
-    cd pandoc-crossref && \
-    cabal sandbox init && \
-    cabal install pandoc-crossref-0.2.1.3 && \
-    cabal install pandoc-citeproc && \
+RUN apt-get -yq update && apt-get install -y python-pip wget
+RUN wget https://github.com/jgm/pandoc/releases/download/1.19.2.1/pandoc-1.19.2.1-1-amd64.deb && \
+    dpkg -i pandoc-1.19.2.1-1-amd64.deb && \
+    wget https://github.com/lierdakil/pandoc-crossref/releases/download/v0.2.6.0/linux-ghc8-pandoc-1-19.tar.gz -q -O - | tar xz && \
+    mv pandoc-crossref /usr/bin/ && \
     pip install pandocfilters && \
-    rm -fr /root/.cabal && \
     apt-get clean -y && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-ENV PATH=/pandoc-crossref/.cabal-sandbox/bin:$PATH
+    rm -rf pandoc-1.19.2.1-1-amd64.deb /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ENTRYPOINT ["pandoc"]
 CMD ["--help"]
