@@ -53,7 +53,21 @@ repository.
 
 ## Version Info
 
-### 1.17 (1.17.1, latest)
+### 2.2.3.2 (2.2.3.2, latest)
+
+  * Ubuntu Xenial (`ubuntu:xenial`)
+  * TexLive 20160320-1
+  * pandoc 2.2.3.2
+  * pandoc-crossref 0.3.2.1
+
+### 1.19.2.1 (1.19.2.1)
+
+  * Ubuntu Xenial (`ubuntu:xenial`)
+  * TexLive 20160320-1
+  * pandoc 1.19.2.1
+  * pandoc-crossref 0.2.6.0
+
+### 1.17 (1.17.1)
 
   * Ubuntu Xenial (`ubuntu:xenial`)
   * TexLive 20160320-1
