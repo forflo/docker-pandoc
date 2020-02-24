@@ -9,5 +9,4 @@ RUN wget https://github.com/jgm/pandoc/releases/download/2.3.1/pandoc-2.3.1-1-am
     pip install pandocfilters && \
     apt-get clean -y && \
     rm -rf pandoc-*-amd64.deb /var/lib/apt/lists/* /tmp/* /var/tmp/*
-ENTRYPOINT ["pandoc"]
-CMD ["--help"]
+
